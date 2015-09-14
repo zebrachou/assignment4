@@ -5,14 +5,14 @@ public class Special extends fooditem {
 		Scanner console3 = new Scanner(System.in);
 		double budget = 0.0;
 			System.out.println("What's your budget?");
-			budget = console3.nextDouble();;
-		Scanner console = new Scanner(System.in);	
-		fooditem burger = new fooditem("1 Burger", 3.0, 0);
-		fooditem taco = new fooditem("2 Taco", 2.5, 0);
+			budget    = console3.nextDouble();;
+		Scanner console   = new Scanner(System.in);	
+		fooditem burger   = new fooditem("1 Burger", 3.0, 0);
+		fooditem taco     = new fooditem("2 Taco", 2.5, 0);
 		fooditem sandwich = new fooditem("3 Sandwich", 3.5, 0);
-		fooditem hotdog = new fooditem("4 Hot dog", 1.5, 0);
-		fooditem pizza = new fooditem("5 Pizza", 4.5, 0);
-	    lunch coke =new lunch("6 Coke",1.0,0,0.5);
+		fooditem hotdog   = new fooditem("4 Hot dog", 1.5, 0);
+		fooditem pizza    = new fooditem("5 Pizza", 4.5, 0);
+	        lunch    coke     =new  lunch("6 Coke",1.0,0,0.5);
 	    ArrayList<fooditem> normal = new ArrayList();
 		normal.add(burger);
 		normal.add(taco);
@@ -29,7 +29,7 @@ public class Special extends fooditem {
 		Items.add(pizza);
 		Items.add(coke);
 		ArrayList<fooditem> order = new ArrayList();
-		int option=0;
+		int a=0;
 		int quantity = 0;
 		String answer="No";
 		do{
@@ -38,8 +38,8 @@ public class Special extends fooditem {
 			System.out.println("enter 3 for change:");
 			System.out.println("enter 4 for check");
 		    Scanner console1 = new Scanner(System.in);
-			option = console1.nextInt();
-			if(option==1){
+		                        a  = console1.nextInt();
+			if(a==1){
 				for (fooditem f : normal) {
 					System.out.println(f.get_name()+" "+f.get_price());
 				}
@@ -48,7 +48,7 @@ public class Special extends fooditem {
 				}
 				System.out.println("If you order coke, you will got 50%discount on it.");
 			}
-	        else if(option==2){
+	        else if(a==2){
 	        	 do{
 	        			int p;
 	        			int i=0;
@@ -154,11 +154,11 @@ public class Special extends fooditem {
 	        			     break;
 	        	        }while(true);    	    		
 	        }
-			else if(option==3){
+			else if(a==3){
 				list(order);
 				update(Items, order, budget, console);
 			}
-			else if(option==4){
+			else if(a==4){
 				double total = 0.0D;
 				System.out.println();
 				for (int i = 0; i < order.size(); i++) {
