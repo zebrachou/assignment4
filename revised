@@ -1,0 +1,215 @@
+import java.util.Scanner; 
+import java.util.ArrayList;
+public class Special extends fooditem {
+	public static void main(String[] args){
+		Scanner console3 = new Scanner(System.in);
+		double budget = 0.0;
+			System.out.println("What's your budget?");
+			budget = console3.nextDouble();;
+		Scanner console = new Scanner(System.in);	
+		fooditem burger = new fooditem("1 Burger", 3.0, 0);
+		fooditem taco = new fooditem("2 Taco", 2.5, 0);
+		fooditem sandwich = new fooditem("3 Sandwich", 3.5, 0);
+		fooditem hotdog = new fooditem("4 Hot dog", 1.5, 0);
+		fooditem pizza = new fooditem("5 Pizza", 4.5, 0);
+	    lunch coke =new lunch("6 Coke",1.0,0,0.5);
+	    ArrayList<fooditem> normal = new ArrayList();
+		normal.add(burger);
+		normal.add(taco);
+		normal.add(sandwich);
+		normal.add(hotdog);
+		normal.add(pizza);
+		ArrayList<lunch> special = new ArrayList();
+		special.add( coke);
+		ArrayList<fooditem> Items = new ArrayList();
+		Items.add(burger);
+		Items.add(taco);
+		Items.add(sandwich);
+		Items.add(hotdog);
+		Items.add(pizza);
+		Items.add(coke);
+		ArrayList<fooditem> order = new ArrayList();
+		int optionSelected=0;
+		int quantity = 0;
+		String answer="No";
+		do{
+			System.out.println("enter 1 for menu:");
+			System.out.println("enter 2 for order:");
+			System.out.println("enter 3 for change:");
+			System.out.println("enter 4 for check");
+		    Scanner console1 = new Scanner(System.in);
+			optionSelected= console1.nextInt();
+			if(optionSelected==1){
+				for (fooditem f : normal) {
+					System.out.println(f.get_name()+" "+f.get_price());
+				}
+				for (lunch f : special) {
+					System.out.println(f.get_name()+" "+f.get_price()+" @");
+				}
+				System.out.println("If you order coke, you will got 50%discount on it.");
+			}
+	        else if(optionSelected==2){
+	        	 do{
+	        			int numberentered;
+	        			int i=0;
+	        			System.out.println("What food are you looking for?(please enter the number) ");
+	        			numberentered = console.nextInt();	
+	        		        	if (numberentered==1){
+	        						System.out.println("How many Burger do you need? ");
+	        						quantity = console.nextInt();
+	        						burger.update_quantity(quantity);
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(0)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(0)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(0));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else if (numberentered==2){
+	        						System.out.println("How many Tacos do you need? ");
+	        						quantity = console.nextInt();
+	        						taco.update_quantity(quantity);
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(1)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(1)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(1));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else if (numberentered==3){
+	        						System.out.println("How many sandwiches do you need? ");
+	        						quantity = console.nextInt();
+	        						sandwich.update_quantity(quantity);	
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(2)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(2)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(2));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else if (numberentered==4){
+	        						System.out.println("How many hot dog do you need? ");
+	        						quantity = console.nextInt();
+	        						hotdog.update_quantity(quantity);
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(3)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(3)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(3));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else if (numberentered==5){
+	        						System.out.println("How many pizza do you need? ");
+	        						quantity = console.nextInt();
+	        						pizza.update_quantity(quantity);
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(4)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(4)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(4));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else if (numberentered==6){
+	        						System.out.println("How many Coke do you need? ");
+	        						quantity = console.nextInt();
+	        						coke.update_quantity(quantity);	
+	        						double estimated_cost = 0.0D;;
+	        						estimated_cost = current+ ((fooditem)Items.get(5)).get_price()* quantity;
+	        						if (estimated_cost <= budget) {
+	        							((fooditem)Items.get(5)).update_quantity(quantity);
+	        							order.add((fooditem)Items.get(5));
+	        							current = estimated_cost;
+	        							System.out.println("Your current charge is  "+Double.valueOf(current));
+	        						} else {
+	        							System.out.println("you don't have enough budget!");
+	        						}
+	        					}
+	        					else {
+	        						System.out.println("Sorry, we do not have it.");
+	        					}
+		        				System.out.println();
+	        		       System.out.println("Do you want anything else? (Enter anything to try again, enter No to continue：");
+	        			    answer=console.next();
+	        			    if(answer.equals("No"))
+	        			     break;
+	        	        }while(true);    	    		
+	        }
+			else if(optionSelected==3){
+				list(order);
+				update(Items, order, budget, console);
+			}
+			else if(optionSelected==4){
+				double total = 0.0D;
+				System.out.println();
+				for (int i = 0; i < order.size(); i++) {
+					if (((fooditem) order.get(i)).get_quantity() != 0) {
+						System.out.printf("%10.2s%10s%10s%10s\n", "number", "name", "price", "sub_total");
+						System.out.println("-------------------------------------------------------------");
+						System.out.println(Integer.valueOf(i + 1)+"    "+
+												((fooditem) order.get(i)).get_name()+"    "+
+												Double.valueOf(((fooditem) order.get(i)).get_price())+"      "+
+												Integer.valueOf(((fooditem) order.get(i)).get_quantity())+"     "+
+												Double.valueOf(((fooditem) order.get(i)).get_price()* ((fooditem) order.get(i)).get_quantity()));
+					}
+					total += ((fooditem) order.get(i)).get_price()* ((fooditem) order.get(i)).get_quantity();
+				}
+				System.out.println("-------------------------------------------------------------");
+				System.out.println("Total charge is "+Double.valueOf(total));
+				break;
+			}				
+		   }while(true);		
+}
+	private static double current = 0.0D;
+	public static void update(ArrayList<fooditem>Items,ArrayList<fooditem> order, double budget, Scanner console) {
+		list(order);
+		System.out.println("Please enter the number:");
+		int choice;
+		choice= console. nextInt();
+		System.out.println("Enter 0 to remove ");
+		int quantity;
+		quantity= console. nextInt();
+		if (quantity == 0) {
+			order.remove(choice - 1);	
+		}
+	}
+	public static void list(ArrayList<fooditem> order) {
+		double total = 0.0D;
+		System.out.println();
+		for (int i = 0; i < order.size(); i++) {
+			if (((fooditem) order.get(i)).get_quantity() != 0) {
+				System.out.println(Integer.valueOf(i + 1)+" name:"+
+										((fooditem) order.get(i)).get_name()+" price:"+
+										Double.valueOf(((fooditem) order.get(i)).get_price())+" quantity:"+
+										Integer.valueOf(((fooditem) order.get(i)).get_quantity())+" total price:"+
+										Double.valueOf(((fooditem) order.get(i)).get_price()* ((fooditem) order.get(i)).get_quantity()));
+			}
+			total += ((fooditem) order.get(i)).get_price()* ((fooditem) order.get(i)).get_quantity();
+	
+		}
+		System.out.println("Total charge is "+Double.valueOf(total));
+	}
+	
+	
+}
+
+
